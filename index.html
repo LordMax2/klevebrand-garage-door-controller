@@ -1,0 +1,85 @@
+<!DOCTYPE html /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: "SEGOE UI", SANS-SERIF;
+    }
+    body {
+        margin:0;
+        background-image:url('https://img.freepik.com/free-vector/white-abstract-wallpaper_23-2148808300.jpg');
+        background-size: cover;
+    }
+    .container {
+        text-align: center;
+        width: 80%;
+        margin: auto;
+        max-width: 500px;
+        height:100vh;
+    }
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .button {
+        width: 45%;
+        padding: 2em;
+        margin: 5px 0;
+        cursor: pointer;
+        transition: 0.1s all;
+        min-width: 225px;
+    }
+    .button:hover {
+        transform: scale(0.96);
+    }
+    .border-top {
+        border-top: 1px solid black !important;
+    }
+
+    .footer {
+        position: absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        padding:1em 0;
+        width: 80%;
+    }
+
+    .footer a {
+        color:black;
+        text-decoration: none;
+    }
+    .blue-button-theme {
+        background-color: #2196f3 !important;
+        font-weight: 600 !important;
+        color: #FFF !important;
+    }
+</style>
+<title>Garage Door Controller | Trest</title>
+<div class="container">
+    <br />
+    <br />
+    <h1>Garage Door Control</h1>
+    <div class="button-container"><a class="button blue-button-theme" id="16">Garageport 1</a> <a class="button blue-button-theme" id="5">Garageport 2</a> <a class="button blue-button-theme" id="4">Garageport 3</a> <a class="button blue-button-theme" id="14">Garageport 4</a></div>
+    <div class="border-top footer">
+        <p>© <span id="year">2024</span> Trest | Gränssnittet är gjord av <b><a href="https://trest.se">Trest</a></b></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+
+
+    document.querySelectorAll(".button").forEach((element) => {
+        element.addEventListener("click", async (event) => {
+            var response = await fetch(`/gpio?pin=${event.target.id}`, { method: "POST" });
+            if (response.ok) {
+            } else {
+            }
+        });
+    });
+</script>
+
