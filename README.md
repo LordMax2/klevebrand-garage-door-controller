@@ -12,7 +12,7 @@ One more important thing is that the relay that I choose runs on 5v and the ESP8
 I've just used a regular generic ESP8266 module as controller for this project with a Geekcreit 4 relay module. 
 
 #### Customization
-You can customize this controller just as you want, the index.html file provided is the GUI, and you can put your name/company name on top, change the background and do whetever you want. 
+You can customize this controller just as you want, the index.html file provided is the GUI, and you can put your name/company name on top, change the background and do whetever you want. To insert your customized index.html page into the controller you need to transform the contents of the index.html to a single line, and then insert it into the `handleRoot` method.
 
 To customize the internal URL/DNS name of the controller you need to change the `MDNS.begin` in the code from 'garaget' to whatever fits you the best. Then you can access the controller in your browser with 'http://garaget.local'.
 
